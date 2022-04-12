@@ -6,7 +6,7 @@ namespace CA.Data.Interfaces
     {
         void Add(Athlete athlete);        
         IEnumerable<Athlete> GetAll();
-        Athlete Get(Guid id);
+        Athlete GetById(Guid id);
         void Update(Guid id,Athlete athlete);
         void Delete(Guid id);
     }

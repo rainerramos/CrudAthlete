@@ -6,9 +6,9 @@ namespace CA.Service.Interface
     {
         void Add(Athlete athlete);
         IEnumerable<Athlete> GetAll();
-        Athlete Get(Guid id);
+        Athlete GetById(Guid id);
         void Update(Guid id, Athlete athlete);
         void Delete(Guid id);
-        bool IsCpf(string cpf)
+        bool IsCpf(string cpf);
     }
 }

@@ -23,9 +23,9 @@ namespace CA.Service.Imp
 			_repository.Delete(id);
 		}
 
-        public Athlete Get(Guid id)
+        public Athlete GetById(Guid id)
         {
-			return _repository.Get(id);
+			return _repository.GetById(id);
 		}
 
         public IEnumerable<Athlete> GetAll()

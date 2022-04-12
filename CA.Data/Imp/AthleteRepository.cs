@@ -1,5 +1,6 @@
 ﻿using CA.Data.Interfaces;
 using CA.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace CA.Data.Imp
 {
@@ -20,7 +21,7 @@ namespace CA.Data.Imp
 
         public void Delete(Guid id)
         {
-            Athlete athlete = Get(id);
+            Athlete athlete = GetById(id);
             if (athlete != null)
             {
                 _db.Athlete.Remove(athlete);
@@ -28,9 +29,9 @@ namespace CA.Data.Imp
             }
         }
 
-        public Athlete Get(Guid id)
+        public Athlete GetById(Guid id)
         {
-            return _db.Athlete.First(x => x.Id == id);
+            return _db.Athlete.AsNoTracking().FirstOrDefault(x => x.Id == id);
         }
 
         public IEnumerable<Athlete> GetAll()
@@ -40,7 +41,7 @@ namespace CA.Data.Imp
 
         public void Update(Guid id, Athlete athleteDTO)
         {
-            Athlete athlete = Get(id);
+            Athlete athlete = GetById(id);
 
             if (athlete != null)
             {
